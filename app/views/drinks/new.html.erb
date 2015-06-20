@@ -1,73 +1,82 @@
-<h1>Create your drink</h1>
+<div class="row">
+  <div class="col-md-7">
 
-<%= form_for :drink, url: drinks_path do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+    <h1>Create your drink</h1>
 
-  <p>
-    <%= f.label :flavor_base %><br>
-    <%= select_tag(:flavor_base, options_for_select(['Rabarber', 'Ingwer', 'Maracuja', 'Birne-Quinoa', 'Rote Beete'])) %>
-  </p>
+    <%= form_for :drink, url: drinks_path do |f| %>
+      <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </p>
+
+      <p>
+        <%= f.label :flavor_base %><br>
+        <%= select_tag(:flavor_base, options_for_select(['Rabarber', 'Ingwer', 'Maracuja', 'Birne-Quinoa', 'Rote Beete'])) %>
+      </p>
 
 
-  <p>
-    <%= f.label :e_numbers %><br>
-    E175 Goldpartikel <%= check_box_tag "drink[e_numbers][]", "E175"  %><br>
-    E173 Aluminumpartikel <%= check_box_tag "drink[e_numbers][]", "E173"  %><br>
-    E153 Holzkohle/Schwarz <%= check_box_tag "drink[e_numbers][]", "E153"  %><br>
-    E235 Antibiotisch wirkende Schimmelpilzausscheidung <%= check_box_tag "drink[e_numbers][]", "E235"  %><br>
-    E296 Apfelsäure, unterstützt Antioxidantien <%= check_box_tag "drink[e_numbers][]", "E296"  %><br>
-    E300 Ascorbinäure (Vitamin C) <%= check_box_tag "drink[e_numbers][]", "E300" %><br>
-  </p>
+      <p>
+        <%= f.label :e_numbers %><br>
+        <%= check_box_tag "drink[e_numbers][]", "E175"  %> E175 Goldpartikel <br>
+        <%= check_box_tag "drink[e_numbers][]", "E173"  %> E173 Aluminumpartikel <br>
+        <%= check_box_tag "drink[e_numbers][]", "E153"  %> E153 Holzkohle/Schwarz <br>
+        <%= check_box_tag "drink[e_numbers][]", "E235"  %> E235 Antibiotisch wirkende Schimmelpilzausscheidung <br>
+        <%= check_box_tag "drink[e_numbers][]", "E296"  %> E296 Apfelsäure, unterstützt Antioxidantien <br>
+        <%= check_box_tag "drink[e_numbers][]", "E300" %> E300 Ascorbinäure (Vitamin C) <br>
+      </p>
 
-  <p>
-    <%= f.label :stevia %>
-    <%= f.check_box :stevia %>
-  </p>
+      <p>
+        <%= f.label :stevia %>
+        <%= f.check_box :stevia %>
+      </p>
 
-  <p>
-    <%= f.label :bottle_type %><br>
-    <%= select_tag(:bottle_type, options_for_select([['Small', 0], ['Big', 1],['Bold', 2],['Special', 3]], 0)) %>
-  </p>
+      <p>
+        <%= f.label :bottle_type %><br>
+        <%= select_tag(:bottle_type, options_for_select([['Small', 0], ['Big', 1],['Bold', 2],['Special', 3]], 0)) %>
+      </p>
 
-  <p>
-    <%= f.label :alcohol_type %>
-    <%= select_tag(:alcohol_type, options_for_select(['Vodka', 'Tequila', 'Rum White', 'Rum Brown'])) %>
-  </p>
+      <p>
+        <%= f.label :alcohol_type %>
+        <%= select_tag(:alcohol_type, options_for_select(['Vodka', 'Tequila', 'Rum White', 'Rum Brown'])) %>
+      </p>
 
-  <p>
-    <%= f.label :energy_type %>
-    <%= select_tag(:energy_type, options_for_select(['Taurin', 'Koffein', 'Guarana', 'Teein'])) %>
-  </p>
+      <p>
+        <%= f.label :energy_type %>
+        <%= select_tag(:energy_type, options_for_select(['Taurin', 'Koffein', 'Guarana', 'Teein'])) %>
+      </p>
 
-  <p>
-    <%= f.label :img_ref %>
-    TODO
-  </p>
+      <p>
+        <%= f.label :img_ref %>
+        TODO
+      </p>
 
-  <p>
-    <%= f.label :blubber %>
-    <%= select_tag :blubber, options_for_select(['0', '1', '2', '3', '4']) %>
-  </p>
+      <p>
+        <%= f.label :blubber %>
+        <%= select_tag :blubber, options_for_select(['0', '1', '2', '3', '4']) %>
+      </p>
 
-  <p>
-    <%= f.label :required_amount %>
-    <%= f.number_field :required_amount, value: 10, min: 1, max: 10000, step: 1 %>
-  </p>
+      <p>
+        <%= f.label :required_amount %>
+        <%= f.number_field :required_amount, value: 10, min: 1, max: 10000, step: 1 %>
+      </p>
 
-  <p>
-    <%= f.label :price_idea %>
-    <%= f.number_field :price_idea, min: 0.10, max: 10.0, step: 0.01, value: 1.0 %>
-  </p>
+      <p>
+        <%= f.label :price_idea %>
+        <%= f.number_field :price_idea, min: 0.10, max: 10.0, step: 0.01, value: 1.0 %>
+      </p>
 
-  <p>
-    <%= f.label :innovator_email %>
-    <%= f.email_field :innovator_email %>
-  </p>
+      <p>
+        <%= f.label :innovator_email %>
+        <%= f.email_field :innovator_email %>
+      </p>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+  <div class="col-md-5">
+    Here comes the 3d pic
+
+  </div>
+</div>
