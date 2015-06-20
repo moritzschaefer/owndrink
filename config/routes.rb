@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   put 'drinks/:id/apply', to: 'drinks#apply', as: :apply
 
   post 'email_callback', to: 'application#email_callback'
+
+
+  get "/client_token", to: 'application#braintree_token'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

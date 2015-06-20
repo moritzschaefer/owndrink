@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
     #render status: 200 # , json: @controller.to_json
     head :ok
   end
+
+  def braintree_token
+    token = Braintree::ClientToken.generate(
+      #:customer_id => customer_id
+    )
+    render :text => token
+  end
 end

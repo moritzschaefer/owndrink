@@ -4,7 +4,6 @@
     <h1>Create your drink</h1>
 
     <%= form_for :drink, url: drinks_path do |f| %>
-      <div id="payment_form"></div>
       <p>
         <%= f.label :title %><br>
         <%= f.text_field :title %>
@@ -70,6 +69,15 @@
         <%= f.label :innovator_email %>
         <%= f.email_field :innovator_email %>
       </p>
+      <p>
+        <%= f.label 'First Name' %><br>
+        <%= text_field_tag :first_name %>
+      </p>
+      <p>
+        <%= f.label 'Last Name' %><br>
+        <%= text_field_tag :last_name %>
+      </p>
+      <div id="payment-form"></div>
 
       <p>
         <%= f.submit %>

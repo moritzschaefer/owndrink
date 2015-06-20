@@ -4,13 +4,14 @@
     <%= f.email_field :builder_email %>
   </p>
   <p>
-    <%= f.label 'Your Firstname' %><br>
-    <%= f.email_field :first_name %>
+    <%= f.label 'First Name' %><br>
+    <%= text_field_tag :first_name %>
   </p>
   <p>
-    <%= f.label 'Your Lastname' %><br>
-    <%= f.email_field :last_name %>
+    <%= f.label 'Last Name' %><br>
+    <%= text_field_tag :last_name %>
   </p>
   <%= f.submit %>
 
 <% end %>
+
