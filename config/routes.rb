@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :drinks
   root 'drinks#new'
+
+  get 'drinks/:id/apply', to: 'drinks#show_apply', as: :show_apply
+  put 'drinks/:id/apply', to: 'drinks#apply', as: :apply
+
+  post 'email_callback', to: 'application#email_callback'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
