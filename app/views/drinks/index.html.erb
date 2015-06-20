@@ -1,0 +1,15 @@
+<h1>Innovated drinks</h1>
+
+<p>Hey. Here are innovational drinks created with &hearts;<br>Want to realize/manufactor one of this? Just make a click and make a hipster happy. (Or "erfülle sein Lebensziel")</p>
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+
+  Use snippet to show drink here
+  <% @drinks.each do |drink| %>
+    <tr>
+      <td><%= drink.title %></td>
+    </tr>
+  <% end %>
+</table>

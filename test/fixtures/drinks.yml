@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  flavor_base: MyString
+  e_numbers: MyString
+  stevia: false
+  bottle_type: 1
+  alcohol_type: MyString
+  energy_type: MyString
+  img_ref: MyString
+  blubber: 1
+  required_amount: 1
+  price_idea: 1.5
+
+two:
+  title: MyString
+  flavor_base: MyString
+  e_numbers: MyString
+  stevia: false
+  bottle_type: 1
+  alcohol_type: MyString
+  energy_type: MyString
+  img_ref: MyString
+  blubber: 1
+  required_amount: 1
+  price_idea: 1.5
