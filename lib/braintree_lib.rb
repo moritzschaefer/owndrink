@@ -13,7 +13,6 @@ class BraintreeLib
   def self.transfer_money drink
     customer = Braintree::Customer.find(drink.innovator_braintree_id)
     payment_method_token = customer.payment_methods[0].token
-    puts payment_method_token
 
     result = Braintree::Transaction.sale(
       :merchant_account_id => drink.builder_braintree_id,
