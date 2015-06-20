@@ -8,7 +8,7 @@ class EmailLib
 
     mail = SendGrid::Mail.new do |m|
       m.to = drink.innovator_email
-      m.from = drink.builder_email # TODO: just communicate with our app here!!
+      m.from = 'inbound@owndrink.bymail.in'
       m.subject = 'Build found'
       m.text = 'Hey Hipster. A builder wants to realize your dream. Just respond "confirm" as text to this E-Mail and we will send him your money so he can start building.'
     end
@@ -21,7 +21,7 @@ class EmailLib
 
     mail = SendGrid::Mail.new do |m|
       m.to = drink.bulder_email
-      m.from = drink.innovator_email # TODO: just communicate with our app here!!
+      m.from = 'inbound@owndrink.bymail.in'
       m.subject = 'Creation Confirmed'
       m.text = 'Congratulations. The Hipster confirmed and the money should be on your side now. Create his drink and make him happy.'
     end
@@ -29,6 +29,6 @@ class EmailLib
   end
 
   def self.email_callback params
-    Rails.logger.info params.to_s
+    Rails.logger.info params.keys.to_s
   end
 end

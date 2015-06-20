@@ -15,12 +15,24 @@ class DrinksController < ApplicationController
   def apply
     @drink = Drink.find(params[:id])
     @drink.builder_email = params.require(:drink).permit(:builder_email)[:builder_email]
-    @drink.save
+    last_name = params.require(:drink).permit(:last_name)[:last_name]
+    first_name = params.require(:drink).permit(:first_name)[:first_name]
+    merchant_id = BraintreeLib.create_merchant first_name, last_name, @drink.builder_email
 
-    # Send Email to innovator
-    EmailLib.send_apply_email @drink
+    if not merchant_id
+      head :bad_request
+    else
+      @drink.builder_braintree_id = merchant_id
 
-    redirect_to drinks_url
+      @drink.save
+
+      BraintreeLib.transfer_money @drink
+
+      # Send Email to innovator
+      EmailLib.send_apply_email @drink
+
+      redirect_to drinks_url
+    end
   end
 
   def index
@@ -29,8 +41,14 @@ class DrinksController < ApplicationController
 
   def create
     @drink = Drink.new(params.require(:drink).permit(:title, :stevia, :bottle_type, :alcohol_type, :energy_type, :img_ref, :blubber, :required_amount, :price_idea, :innovator_email))
-    @drink.save
-    redirect_to @drink
+    braintree_id = BraintreeLib.create_customer 'firstname', 'lastname'
+    if not braintree_id
+      head :bad_request # TODO improve
+    else
+      @drink.innovator_braintree_id = braintree_id
+      @drink.save
+      redirect_to @drink
+    end
   end
 
 end

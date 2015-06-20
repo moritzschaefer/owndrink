@@ -4,6 +4,7 @@
     <h1>Create your drink</h1>
 
     <%= form_for :drink, url: drinks_path do |f| %>
+      <div id="payment_form"></div>
       <p>
         <%= f.label :title %><br>
         <%= f.text_field :title %>
