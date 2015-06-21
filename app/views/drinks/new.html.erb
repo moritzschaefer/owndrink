@@ -3,7 +3,7 @@
 
     <h1>Create your drink</h1>
 
-    <%= form_for :drink, url: drinks_path do |f| %>
+    <%= form_for :drink, url: drinks_path, :html => {:id => 'drink_form'} do |f| %>
       <p>
         <%= f.label :title %><br>
         <%= f.text_field :title %>
@@ -32,7 +32,7 @@
 
       <p>
         <%= f.label :bottle_type %><br>
-        <%= f.select(:bottle_type, [['Small', 0], ['Big', 1],['Bold', 2],['Special', 3]]) %>
+        <%= f.select(:bottle_type, [['Classic', 0], ['Big', 1],['Special', 3]]) %>
       </p>
 
       <p>
@@ -43,11 +43,6 @@
       <p>
         <%= f.label :energy_type %>
         <%= f.select(:energy_type, ['Taurin', 'Koffein', 'Guarana', 'Teein']) %>
-      </p>
-
-      <p>
-        <%= f.label :img_ref %>
-        TODO
       </p>
 
       <p>
@@ -64,6 +59,11 @@
         <%= f.label :price_idea %>
         <%= f.number_field :price_idea, min: 0.10, max: 10.0, step: 0.01, value: 1.0 %>
       </p>
+      <p>
+        <%= f.label 'Upload image' %>
+        <%= button_tag('Upload', type: 'button', id: 'upload_button') %>
+      </p>
+
 
       <p>
         <%= f.label :innovator_email %><br>
@@ -85,7 +85,9 @@
     <% end %>
   </div>
   <div class="col-md-5">
-    Here comes the 3d pic
-
+    <div style="z-index:0; position:absolute; left:40px; top: 90px; width: 598px; height: 598px; background-image: url(<%= asset_path('0.jpg') %>)" id="bottle_img"></div>
+    <div style="position:absolute; left: 270px; top: 350px; width: 137px; height: 318px; opacity: 0.7; z-index: 2;" id="bottle_overlay"></div>
+    <div style="visibility: hidden; position:absolute; left: 270px; top: 410px; background-size:cover; width: 137px; height: 100px; z-index:3; background-image: url(<%= asset_path('banner.jpg') %>)" id="bottle_banner">
+    </div>
   </div>
 </div>
