@@ -6,12 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="../../favicon.ico">
+    <%= favicon_link_tag 'favicon.ico' %>
     <title>ownDrink</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+
+    <div style="position:absolute; left:40px; top: 90px;"><%= image_tag 'logo.png', width: '150' %></div>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">

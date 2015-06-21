@@ -18,6 +18,7 @@ class DrinksController < ApplicationController
     @drink.builder_email = params.require(:drink).permit(:builder_email)[:builder_email]
     last_name = params['last_name']
     first_name = params['first_name']
+    #iban = params['iban']
     merchant_id = BraintreeLib.create_merchant first_name, last_name, @drink.builder_email
 
     if not merchant_id
@@ -46,7 +47,8 @@ class DrinksController < ApplicationController
     else
       @drink.innovator_braintree_id = braintree_id
       @drink.save
-      redirect_to @drink
+      #redirect_to @drink
+      redirect_to drinks_url
     end
   end
 
