@@ -11,7 +11,7 @@
 
       <p>
         <%= f.label :flavor_base %><br>
-        <%= select_tag(:flavor_base, options_for_select(['Rabarber', 'Ingwer', 'Maracuja', 'Birne-Quinoa', 'Rote Beete'])) %>
+        <%= f.select :flavor_base, ['Rabarber', 'Ingwer', 'Maracuja', 'Birne-Quinoa', 'Rote Beete'] %>
       </p>
 
 
@@ -32,17 +32,17 @@
 
       <p>
         <%= f.label :bottle_type %><br>
-        <%= select_tag(:bottle_type, options_for_select([['Small', 0], ['Big', 1],['Bold', 2],['Special', 3]], 0)) %>
+        <%= f.select(:bottle_type, [['Small', 0], ['Big', 1],['Bold', 2],['Special', 3]]) %>
       </p>
 
       <p>
         <%= f.label :alcohol_type %>
-        <%= select_tag(:alcohol_type, options_for_select(['Vodka', 'Tequila', 'Rum White', 'Rum Brown'])) %>
+        <%= f.select(:alcohol_type, ['Vodka', 'Tequila', 'Rum White', 'Rum Brown']) %>
       </p>
 
       <p>
         <%= f.label :energy_type %>
-        <%= select_tag(:energy_type, options_for_select(['Taurin', 'Koffein', 'Guarana', 'Teein'])) %>
+        <%= f.select(:energy_type, ['Taurin', 'Koffein', 'Guarana', 'Teein']) %>
       </p>
 
       <p>
@@ -52,7 +52,7 @@
 
       <p>
         <%= f.label :blubber %>
-        <%= select_tag :blubber, options_for_select(['0', '1', '2', '3', '4']) %>
+        <%= f.select :blubber, ['0', '1', '2', '3', '4'] %>
       </p>
 
       <p>

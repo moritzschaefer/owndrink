@@ -40,7 +40,12 @@ class DrinksController < ApplicationController
   end
 
   def create
-    @drink = Drink.new(params.require(:drink).permit(:title, :stevia, :bottle_type, :alcohol_type, :energy_type, :img_ref, :blubber, :required_amount, :price_idea, :innovator_email))
+    #@drink = Drink.new(params.require(:drink).permit(:title, :stevia, :bottle_type, :alcohol_type, :energy_type, :img_ref, :blubber, :required_amount, :price_idea, :innovator_email, :e_numbers))
+    drink_params = params.require(:drink).permit!
+    if drink_params['e_numbers']
+      drink_params['e_numbers'] = drink_params['e_numbers'].map(&:inspect).join(', ')
+    end
+    @drink = Drink.new(drink_params)
     braintree_id = BraintreeLib.create_customer params['first_name'],params['last_name'], params[:payment_method_nonce]
     if not braintree_id
       head :bad_request # TODO improve

@@ -1,19 +1,30 @@
 <h1>Innovated drinks</h1>
 
-<p>Hey. Here are innovational drinks created with &hearts;<br>Want to realize/manufactor one of this? Just make a click and make a hipster happy. (Or "erfülle sein Lebensziel")</p>
-<table>
+<strong>Hey. Here are innovational drinks created with &hearts;<br>Want to realize/manufactor one of this? Just make a click and make a hipster happy. </strong>
+
+<table class="table">
   <tr>
-    <th>Title</th>
-    <th>Attributes</th>
-    <th>Amount</th>
-    <th>Price</th>
-    <th>Preview</th>
+    <th class="col-md-2">Title</th>
+    <th class="col-md-4">Attributes</th>
+    <th class="col-md-1">Amount</th>
+    <th class="col-md-1">Price</th>
+    <th class="col-md-3">Preview</th>
+    <th class="col-md-1">Apply</th>
   </tr>
 
-  Use snippet to show drink here
   <% @drinks.each do |drink| %>
     <tr>
       <td><%= drink.title %></td>
+      <td>
+        <%= drink.flavor_base %><br>
+        <%= drink.energy_type %><br>
+        <%= drink.alcohol_type %><br>
+        <%= drink.e_numbers %><br>
+        Blubber: <%= drink.blubber %>
+      </td>
+      <td><%= drink.required_amount %></td>
+      <td><%= drink.price_idea %></td>
+      <td>3D preview here</td>
       <td><%= link_to 'Apply', apply_path(drink) %> </td>
     </tr>
   <% end %>
