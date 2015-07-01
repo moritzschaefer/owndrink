@@ -1,9 +1,10 @@
 require 'sendgrid-ruby'
 
+
 class EmailLib
   def self.send_apply_email drink
 
-    client = SendGrid::Client.new(api_user: 'mollitz', api_key: 'hackathon1')
+    client = SendGrid::Client.new(api_user: ENV['API_USER'], api_key: ENV['API_KEY'])
 
 
     mail = SendGrid::Mail.new do |m|
